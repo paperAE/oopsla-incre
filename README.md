@@ -250,7 +250,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
       python runExperiment.py --only-first /workspace/SmokeTest/Real sysJ smoke_real_stand_1.csv run.jar
       ```
 
-      The full run takes several minutes to tens of minutes. After completion,  `smoke_real_stand_1.csv` should yield results similar to the image below. ![](Figures\smoke-1.png)
+      The full run takes several minutes to tens of minutes. After completion,  `smoke_real_stand_1.csv` should yield results similar to the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-1.png)
 
    3. For the unrealizable setting, execute `touch smoke_unreal_stand_base_1.csv` and `touch smoke_unreal_stand_nEDU_1.csv`.
 
@@ -260,7 +260,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
       python runExperiment.py --only-first /workspace/SmokeTest/Unreal/Base sysJ smoke_unreal_stand_base_1.csv run.jar
       ```
 
-      The full run takes several minutes to tens of minutes. Upon completion, the file `smoke_unreal_stand_base_1.csv` should contain results similar to the image below. ![](Figures\smoke-2.png)
+      The full run takes several minutes to tens of minutes. Upon completion, the file `smoke_unreal_stand_base_1.csv` should contain results similar to the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-2.png)
 
    5. Run the second baseline test (disabling the *early unrealizability detection* heuristic) for the system justice sequence on specification `1669643728.spectra` in the `SmokeTest` directory under the unrealizable setting using the command: 
 
@@ -268,7 +268,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
       python runExperiment.py --only-first /workspace/SmokeTest/Unreal/Incre sysJ smoke_unreal_stand_nEDU_1.csv runWithOutEUD.jar
       ```
 
-      The full run takes several minutes to tens of minutes. Upon completion, the file `smoke_unreal_stand_nEDU_1.csv` should contain results similar to the image below. ![](Figures\smoke-3.png)
+      The full run takes several minutes to tens of minutes. Upon completion, the file `smoke_unreal_stand_nEDU_1.csv` should contain results similar to the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-3.png)
 
 2. #### Running the Incremental Method
 
@@ -282,7 +282,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
          python runExperiment.py -s shrink --asj --e --as-mode add --step 1 --only-second /workspace/SmokeTest/Real sysJ smoke_real_addSysJ_step1_1.csv run.jar
          ```
 
-         You should obtain results similar to the image below. ![](Figures\smoke-4.png) We observe that the data of `1.spectra` is missing. The command line will report an error: `[Run Command Failed]`. This does **not** indicate a bug in the code, but rather signifies that incremental computation is infeasible for this instance. As discussed in **Remark 2** of the paper, this occurs because modifications involving certain high level constructs introduce changes to the underlying BDD variables, such as the addition or removal of variables, which render the previously computed winning region incompatible and lead to errors upon retrieval.
+         You should obtain results similar to the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-4.png) We observe that the data of `1.spectra` is missing. The command line will report an error: `[Run Command Failed]`. This does **not** indicate a bug in the code, but rather signifies that incremental computation is infeasible for this instance. As discussed in **Remark 2** of the paper, this occurs because modifications involving certain high level constructs introduce changes to the underlying BDD variables, such as the addition or removal of variables, which render the previously computed winning region incompatible and lead to errors upon retrieval.
 
    2. **Unrealizable Setting**
 
@@ -294,7 +294,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
          python runExperiment.py -s shrink --asj --e --as-mode add --step 1 --only-second /workspace/SmokeTest/Unreal/Incre sysJ smoke_unreal_nEDU_addSysJ_step1_1.csv runWithOutEUD.jar
          ```
 
-         You should obtain results similar to the image below. ![](Figures\smoke-5.png)
+         You should obtain results similar to the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-5.png)
 
    #### Analyzing Experimental Results
 
@@ -306,7 +306,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
       file2_path = '/workspace/smoke_real_stand_1.csv'
       ```
 
-      Then, run `python analysisReal.py`. The output should resemble the image below. ![](Figures\smoke-6.png) Here, `OVERALL GEOMETRIC MEAN (All Time Groups):& 0.16^{5}` indicates that the geometric mean of the time ratios (incremental vs. baseline) across `5` data points is `0.15` (variations may occur, as noted in the **Hardware Dependency section**). This generates the overall result shown in **Table 2** of the paper. `Processing file group` shows the matched result files based on the naming rules described earlier. Since we ran only one test, each group matches the file itself. The section below `Column labels` presents the geometric means for different baseline runtime partitions and the timeout ratios for our method and the baseline, which constitute the data in **Table 4** of the paper. `{---}` indicates no data is available (i.e., no baseline runs fall within that time interval).
+      Then, run `python analysisReal.py`. The output should resemble the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-6.png) Here, `OVERALL GEOMETRIC MEAN (All Time Groups):& 0.16^{5}` indicates that the geometric mean of the time ratios (incremental vs. baseline) across `5` data points is `0.15` (variations may occur, as noted in the **Hardware Dependency section**). This generates the overall result shown in **Table 2** of the paper. `Processing file group` shows the matched result files based on the naming rules described earlier. Since we ran only one test, each group matches the file itself. The section below `Column labels` presents the geometric means for different baseline runtime partitions and the timeout ratios for our method and the baseline, which constitute the data in **Table 4** of the paper. `{---}` indicates no data is available (i.e., no baseline runs fall within that time interval).
 
    2. **Unrealizable Setting**
       Analyze the results for the scenario where system justice guarantees are added under the unrealizable setting. **Do not use** `smoke_unreal_stand_nEDU_1.csv`. The purpose of running this baseline type was to obtain the precise winning region for comparison, as the first baseline (with *early detection* enabled) would terminate prematurely, yielding an imprecise region.
@@ -317,7 +317,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
       file2_path = '/workspace/smoke_unreal_stand_base_1.csv'
    ```
 
-   Run `python analysisUnreal.py`. The output should resemble the image below. ![](Figures\smoke-7.png) The result `OVERALL GEOMETRIC MEAN (All Time Groups):& 0.09^{4}` indicates `4` data points with a geometric mean of `0.09` (minor variations may occur). This generates the overall result shown in **Table 3** of the paper. The section below `Column labels` provides the geometric means for different baseline runtime partitions and the timeout ratios, used to generate the data in **Table 5** of the paper. As noted earlier, although `smoke_unreal_stand_addSysJ_step_1.csv` contains `5` entries, one is realizable (`Real`) and is automatically filtered out by the analysis script.
+   Run `python analysisUnreal.py`. The output should resemble the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-7.png) The result `OVERALL GEOMETRIC MEAN (All Time Groups):& 0.09^{4}` indicates `4` data points with a geometric mean of `0.09` (minor variations may occur). This generates the overall result shown in **Table 3** of the paper. The section below `Column labels` provides the geometric means for different baseline runtime partitions and the timeout ratios, used to generate the data in **Table 5** of the paper. As noted earlier, although `smoke_unreal_stand_addSysJ_step_1.csv` contains `5` entries, one is realizable (`Real`) and is automatically filtered out by the analysis script.
 
 3. **Analyzing Unchanged Winning Regions**
    Analyze the proportion of cases where the system winning region remains unchanged when system justice guarantees are added.
@@ -328,7 +328,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
      file1_path = '/workspace/smoke_real_addSysJ_step1_1.csv'
      ```
 
-     Run `python analysisUnchange.py`. The output should resemble the image below. ![](Figures\smoke-8.png) Here, `5/5(100.00\%)` indicates that the winning region did not change for all `5` cases, consistent with the `Detect Early` flag in the previous figures. This step generates the results shown in **Table 6** of the paper.
+     Run `python analysisUnchange.py`. The output should resemble the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-8.png) Here, `5/5(100.00\%)` indicates that the winning region did not change for all `5` cases, consistent with the `Detect Early` flag in the previous figures. This step generates the results shown in **Table 6** of the paper.
 
    - **Unrealizable Setting**: In `analysisUnrealUnchange.py`, modify the corresponding line (line `122` at the bottom of the file) to:
 
@@ -336,7 +336,7 @@ Execute a simple demonstration of our artifact( in `/workspace`) (Smoke Test)
      file1_path = '/workspace/smoke_unreal_nEDU_addSysJ_step1_1.csv'
      ```
 
-     Run `python analysisUnrealUnchange.py`. The output should resemble the image below. ![](Figures\smoke-9.png) Here, `3/4(75.00\%)` indicates that the winning region did not change for `3` out of the `4` cases, consistent with the `Detect Early` flag in the previous figures.
+     Run `python analysisUnrealUnchange.py`. The output should resemble the image below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/smoke-9.png) Here, `3/4(75.00\%)` indicates that the winning region did not change for `3` out of the `4` cases, consistent with the `Detect Early` flag in the previous figures.
 
 
 
@@ -461,7 +461,7 @@ file1_path = '/workspace/SysJAdd/r/SYNTECH_sysJAdd_step1_1.csv'
 file2_path = '/workspace/SysJAdd/r/SYNTECH_sysJStand_1.csv'
 ```
 
-After running the script with `python analysisReal.py` , you will obtain an output below. ![](Figures\full-1.png) The meaning of this output is the same as described in the smoke test section. Pay attention to the bottom data, which matches the first row (`\Delta=1`) of the `Add SysJ*` section in **Table 4** of the paper show below. ![](Figures\full-2.png)
+After running the script with `python analysisReal.py` , you will obtain an output below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-1.png) The meaning of this output is the same as described in the smoke test section. Pay attention to the bottom data, which matches the first row (`\Delta=1`) of the `Add SysJ*` section in **Table 4** of the paper show below. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-2.png)
 
 Similarly, change the value of `file1_path` to 
 
@@ -469,9 +469,9 @@ Similarly, change the value of `file1_path` to
 file1_path = '/workspace/SysJAdd/r/SYNTECH_sysJAdd_step2_1.csv'
 ```
 
- to obtain the following result, which matches the second row (`\Delta=2`) in **Table 4** above. ![](Figures\full-3.png)By continuing to modify the `file1_path`, you can obtain the remaining experimental results in the table.
+ to obtain the following result, which matches the second row (`\Delta=2`) in **Table 4** above. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-3.png)By continuing to modify the `file1_path`, you can obtain the remaining experimental results in the table.
 
-Furthermore, the `OVERALL GEOMETRIC MEAN` (or the `All` column in `Column labels`) corresponds to the overall experimental results shown in **Table 2** of the paper. Essentially, each row in **Tables 4** and **5** represents a detailed breakdown of the individual overall results from **Tables 2** and **3**, partitioned by baseline runtime intervals. ![](Figures\full-8.png)
+Furthermore, the `OVERALL GEOMETRIC MEAN` (or the `All` column in `Column labels`) corresponds to the overall experimental results shown in **Table 2** of the paper. Essentially, each row in **Tables 4** and **5** represents a detailed breakdown of the individual overall results from **Tables 2** and **3**, partitioned by baseline runtime intervals. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-8.png)
 
 We additionally discuss the case of environment assumptions, which involves filtering the experimental results. We demonstrate how to reproduce the `Sub EnvJ` data from **Table 4** of the paper.
 
@@ -482,7 +482,7 @@ file1_path = '/workspace/EnvJSub/r/SYNTECH_envJSub_filteredStep1_1.csv'
 file2_path = '/workspace/EnvJSub/r/SYNTECH_envJStand_1.csv'
 ```
 
-We can get following output: ![](Figures\full-4.png)Running the script yields the following result, which matches the first row of the `Sub EnvJ` section in Table 4 in following: ![](Figures\full-5.png)
+We can get following output: ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-4.png)Running the script yields the following result, which matches the first row of the `Sub EnvJ` section in Table 4 in following: ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-5.png)
 
 We provide further examples of `file_path` modifications below:
 
@@ -524,9 +524,9 @@ Modify the path following `file1_path =` in `analysisUnchange.py` to (line `116`
 file1_path = '/workspace/SysJAdd/r/SYNTECH_sysJAdd_step1_1.csv'
 ```
 
-After running `python analysisUnchange.py`, you get: ![](Figures\full-6.png)
+After running `python analysisUnchange.py`, you get: ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-6.png)
 
-This matches the data for entry `\Delta=1` corresponding to `Add Sys J*` in **Table 6** of the paper. ![](Figures\full-7.png)
+This matches the data for entry `\Delta=1` corresponding to `Add Sys J*` in **Table 6** of the paper. ![](https://github.com/paperAE/oopsla-incre/blob/main/Figures/full-7.png)
 
 By referring to the cases above and the smoke test examples, you can reproduce all the experimental results from the tables in the paper by modifying the file paths in the scripts `analysisReal.py`, `analysisUnreal.py`, `analysisUnchange.py`, and `analysisUnrealUnchange.py`. Using the raw experimental data under the `r` and `u` folders of `EnvJAdd`, `EnvJSub`, `EnvSAdd`, `EnvSSub`, `SysJAdd`, `SysJSub`, `SysSAdd`, and `SysSSub`, the generated tables will be consistent with **Tables 2 to 6** in the paper, thereby substantiating our claims (refer to **Sections 4.3–4.5** of the paper for specific discussions).
 
@@ -535,3 +535,4 @@ By referring to the cases above and the smoke test examples, you can reproduce a
 
 
 *If any unexpected inconsistencies arise (e.g., inconsistent experimental results), you may use the backup Java executable files in `JavaRunBack`. The only difference between the backup files and the main directory files is that adjustments were made to the command-line output sections; no other content was modified. However, to prevent any unforeseen errors introduced by these modifications, we provide the more original versions in the alternative directory. To use them, simply delete the corresponding Java executable file in the main directory and replace it with the backup file. However, based on our smoke test and partial tests on the complete dataset, the modifications did not introduce any errors. Therefore, the backup executables should not be enabled; we provide them here solely as an alternative for unexpected scenarios.*
+
