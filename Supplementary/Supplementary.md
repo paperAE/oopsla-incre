@@ -4,6 +4,10 @@ For `SmokeTest`:
 python analysisReal.py /workspace/smoke_real_addSysJ_step1_1.csv /workspace/smoke_real_stand_1.csv
 
 python analysisUnreal.py /workspace/smoke_unreal_nEDU_addSysJ_step1_1.csv /workspace/smoke_unreal_stand_base_1.csv
+
+python analysisUnchange.py /workspace/smoke_real_addSysJ_step1_1.csv
+
+python analysisUnrealUnchange.py /workspace/smoke_unreal_nEDU_addSysJ_step1_1.csv
 ```
 
 
@@ -79,4 +83,5 @@ python analysisUnrealUnchange.py /workspace/EnvJAdd/u/Unreal_envJAdd_nEDU_step1_
 
 python analysisUnrealUnchange.py /workspace/EnvSAdd/u/Unreal_envSAdd_nEDU_step1_1.csv
 ```
+
 
