@@ -224,6 +224,10 @@ usage: runExperiment.py [-h] [-s {shrink,nshrink}] [--asj] [--e] [--as-mode {add
   Set `file1_path` to the CSV output of the **incremental** batch experiment. The script will then compute statistics regarding instances where the system winning region did not change during incremental synthesis (`Detect Early`).
 
 
+### Update
+
+To remove the need for manual modifications to the data analysis scripts when reproducing our experimental results, we have provided the latest versions of the files `analysisReal.py`, `analysisUnreal.py`, `analysisUnchange.py`, and `analysisUnrealUnchange.py` in the repository: [oopsla-incre/Supplementary at main · paperAE/oopsla-incre](https://github.com/paperAE/oopsla-incre/tree/main/Supplementary) (`/Supplementary` folder). These updates remove manual file modifications, allowing direct input via the command line. User can download these latest files from the link above to replace current version. For specific usage examples, please refer to the `Supplementary.md` file in at that link (`/Supplementary/Supplementary.md`).
+
 
 
 
@@ -535,4 +539,5 @@ By referring to the cases above and the smoke test examples, you can reproduce a
 
 
 *If any unexpected inconsistencies arise (e.g., inconsistent experimental results), you may use the backup Java executable files in `JavaRunBack`. The only difference between the backup files and the main directory files is that adjustments were made to the command-line output sections; no other content was modified. However, to prevent any unforeseen errors introduced by these modifications, we provide the more original versions in the alternative directory. To use them, simply delete the corresponding Java executable file in the main directory and replace it with the backup file. However, based on our smoke test and partial tests on the complete dataset, the modifications did not introduce any errors. Therefore, the backup executables should not be enabled; we provide them here solely as an alternative for unexpected scenarios.*
+
 
