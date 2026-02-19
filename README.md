@@ -540,4 +540,9 @@ By referring to the cases above and the smoke test examples, you can reproduce a
 
 *If any unexpected inconsistencies arise (e.g., inconsistent experimental results), you may use the backup Java executable files in `JavaRunBack`. The only difference between the backup files and the main directory files is that adjustments were made to the command-line output sections; no other content was modified. However, to prevent any unforeseen errors introduced by these modifications, we provide the more original versions in the alternative directory. To use them, simply delete the corresponding Java executable file in the main directory and replace it with the backup file. However, based on our smoke test and partial tests on the complete dataset, the modifications did not introduce any errors. Therefore, the backup executables should not be enabled; we provide them here solely as an alternative for unexpected scenarios.*
 
+### Update
+
+The benchmarks and raw measurement data in the previous docker image include all the test results for the `SYNTECH` benchmark from the paper. We have subsequently added tests for the `AMBA` and `GenBuf` benchmarks. The `AMBA and GenBuf` benchmark and raw measurement results can be found in the compressed file "`Results for AMBA and GenBuf.zip`" in the repository. Additionally, the file "`Supplementary_materials.pdf`" in the repository corresponds to the full data tables referenced in **Tables 2-6** of the paper.
+
+
 
